@@ -1,0 +1,565 @@
+/* Folha de Estilos Padrão */
+
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+body {
+    background: #EEE;
+    color: #434343;
+    font-family: calibri;
+}
+
+main {
+	width: 80%;
+	max-width: 1420px;
+	margin: 0 auto;
+}
+
+nav {
+    background: #5da2F6;
+    width: 100%;
+    height: 52px;
+    text-align: center;
+}
+
+h1 {
+    background: #525252;
+    color: #FFF;
+    text-align: center;
+    padding: 25px 0;
+    margin: 0 0 7px;
+    font-size: 28px;
+    font-family: "Champagne & Limousines", 'Champagne';
+}
+
+nav a {
+    padding: 16px 34px;
+    display: inline-block;
+    color: #FFF;
+    font-family: "Champagne & Limousines", 'Champagne';
+    font-size: 20px;
+    border-bottom: 5px #EEE solid;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+nav a:hover {
+	background: #777;
+    border-bottom: 5px #525252 solid;
+}
+
+section {
+	background: #FFF;
+	width: 100%;
+	padding: 16px 0;
+	margin: 7px 0;
+}
+
+p, h2 {
+    padding: 16px 25px;
+    color: #434343;
+    text-align: center;
+    font-family: calibri;
+}
+
+h2 {
+    background: #DDD;
+    font-weight: normal;
+    font-size: 22px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 16px 0;
+}
+
+#telefones, #chips, #linhas, #modens, #historico, #movimentos {
+	display: none;
+}
+
+
+form {
+    width: 50%;
+    margin: 12px auto;
+}
+
+label {
+    display: block;
+    text-align: center;
+    background: #DDD;
+    padding: 10px 0 0;
+    color: #434343;
+    font-family: calibri;
+    margin-bottom: 12px;
+}
+
+input[type="date"] {
+    width: 100%;
+    font-family: calibri;
+    font-size: 16px;
+    padding: 7px;
+    margin-top: 10px;
+    border: 1px solid #DDD;
+    color: #434343;
+}
+
+input[type="submit"] {
+    background: #2680e6;
+    color: #FFF;
+    border: none;
+    padding: 16px 10%;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+input[type="submit"]:hover {
+    background: #3a92f8;
+}
+
+a.acao.selecionado {
+    background: rgba(0,0,0,.43);
+    border-color: #38C;
+}
+
+.linhaResultado, .linhaResultado3, .linhaResultado4, .linhaResultado5, .linhaResultado6 {
+    display: block;
+    padding: 12px 2%;
+    width: 86%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.linhaResultado:nth-child(odd), .linhaResultado3:nth-child(odd), .linhaResultado4:nth-child(odd), .linhaResultado5:nth-child(odd), .linhaResultado6:nth-child(odd) {
+	background: #CCC;
+}
+
+div.colunaResultado {
+    width: 14%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+footer {
+    text-align: center;
+    margin: 25px 0 12px;
+}
+
+a.exportar {
+    display: block;
+    margin: 25px auto;
+    width: 50%;
+    text-align: center;
+    padding: 16px 0;
+    background: #777;
+    color: #FFF;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+
+a.exportar:hover {
+    background: #5da2F6;
+}
+.tituloResultados {
+    display: block;
+    padding: 0px 2%;
+    width: 86%;
+    margin: 0 auto;
+    background: #777;
+    color: #FFF;
+    text-align: center;
+}
+
+.tituloResultados a {
+    width: 14%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 16px 0;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+.tituloResultados a:hover {
+    background: #555;
+}
+
+.tituloResultados a.selecionado {
+    background: #407ec3;
+}
+
+div#resultadosEstados, div#resultadosTransp {
+    margin-top: 34px;
+}
+
+div.colunaResultado2 {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.linkTitulo2 {
+    width: 25%;
+}
+
+.linhaResultado:hover, .linhaResultado3:hover, .linhaResultado4:hover, .linhaResultado5:hover, .linhaResultado6:hover {
+    background: #578fce;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.Estoque div:first-child:before {
+    width: 14px;
+    height: 14px;
+    content: "";
+    display: inline-block;
+    background: #68b15f;
+    vertical-align: top;
+    border-radius: 100%;
+    margin: 1px 7px 1px 0;
+}
+
+.Manutenção div:first-child:before {
+    width: 14px;
+    height: 14px;
+    content: "";
+    display: inline-block;
+    background: #c33e20;
+    vertical-align: top;
+    border-radius: 100%;
+    margin: 1px 7px 1px 0;
+}
+
+.Em.uso div:first-child:before {
+    width: 14px;
+    height: 14px;
+    content: "";
+    display: inline-block;
+    background: #3f5f98;
+    vertical-align: top;
+    border-radius: 100%;
+    margin: 1px 7px 1px 0;
+}
+
+.Caixa.vazia div:first-child:before {
+    width: 14px;
+    height: 14px;
+    content: "";
+    display: inline-block;
+    background: #DDD;
+    vertical-align: top;
+    border-radius: 100%;
+    margin: 1px 7px 1px 0;
+}
+
+form input, form select {
+    width: 70%;
+    display: block;
+    margin: 7px auto;
+    border: #CCC solid 1px;
+    padding: 12px;
+    color: #777;
+}
+
+form textarea {
+    width: 70%;
+    display: block;
+    margin: 7px auto;
+    border: 1px #CCC solid;
+    resize: none;
+    height: 106px;
+    padding: 12px;
+    color: #777;
+    font-family: arial;
+}
+
+div#sombra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255,255,255,0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+}
+
+div#resultadoSql {
+    background: rgba(132, 200, 124, 0.88);
+    z-index: 9999;
+    position: fixed;
+    color: #FFF;
+    padding: 2% 5%;
+    width: 40%;
+    border: 2px solid rgb(81, 171, 70);
+    text-align: center;
+    text-shadow: 1px 1px 3px #000;
+    font-size: 20px;
+    top: 45%;
+    margin-top: -39px;
+    left: 25%;
+}
+
+input#pesquisarAparelhos, input#pesquisarModens, input#pesquisarLinhas, input#pesquisarChips, input#pesquisarMovimentos {
+    margin: 10px 0;
+    width: 60%;
+    padding: 16px;
+    border: #DDD 1px solid;
+    display: inline-block;
+    margin-left: 5%;
+    color: #999;
+    font-size: 22px;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+input#pesquisarAparelhos:focus, input#pesquisarModens:focus, input#pesquisarLinhas:focus, input#pesquisarMovimentos:focus, input#pesquisarChips:focus {
+    border: #222 1px solid;
+    background: #525252;
+    color: #DDD;
+}
+
+a#adicionarAparelho, a#adicionarModem, a#adicionarLinha, a#adicionarChip, a#adicionarMovimento {
+    width: 27%;
+    padding: 18px 1%;
+    background: #999;
+    display: inline-block;
+    margin-left: 1%;
+    color: #FFF;
+    font-size: 22px;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 11px;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+a#adicionarAparelho:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarLinha:hover, a#adicionarChip:hover, a#adicionarMovimento:hover {
+    background: #578fce;
+}
+
+a#botaoVoltar {
+    width: 30%;
+    text-align: center;
+    display: block;
+    margin: 0px 0 0 63%;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+    color: #FFF;
+    font-size: 18px;
+    padding: 18px 1%;
+    background: #999;
+}
+
+input:required {
+    border: #79C solid 1px;
+}
+
+form span {
+    margin-left: 86%;
+    margin-top: -44px;
+    display: block;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #79C;
+}
+
+img#logoInterno {
+    width: 20%;
+    vertical-align: middle;
+    margin: 0 13% 0 -33%;
+}
+
+.linhaResultado3 .colunaResultado {
+    width: 16%;
+    min-height: 14px;
+}
+
+.linhaResultado4 .colunaResultado, .linhaResultado5 .colunaResultado {
+    width: 25%;
+    min-height: 14px;
+}
+
+a.linkTitulo3 {
+    width: 16%;
+}
+
+a.linkTitulo4, a.linkTitulo5 {
+    width: 25%;
+}
+
+
+a.nmn {
+    width: 23.333333%;
+    display: inline-block;
+    text-align: center;
+    padding: 16px 0;
+    background: #DDD;
+    margin-left: 15%;
+    margin-right: -15%;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px #AAA;
+    color: #333;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+a.nmn:hover {
+    background: #CCC;
+}
+
+a.nmn.selecionado {
+    background: #7bafea;
+    color: #FFF;
+}
+
+.colunaResultado span {
+    width: 33%;
+    display: inline-block;
+    background: rgba(38, 86, 125, 0.16);
+    padding: 12px 0px;
+    margin: -12px 0;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.16);
+}
+
+.colunaResultado span.nao {
+    display: none;
+}
+
+
+
+
+@font-face {
+    font-family: 'Champagne';
+    src: url('../../fontes/champagne__limousines-webfont.eot');
+    src: url('../../fontes/champagne__limousines-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../../fontes/champagne__limousines-webfont.woff') format('woff'),
+        url('../../fontes/champagne__limousines-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

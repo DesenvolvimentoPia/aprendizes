@@ -1,0 +1,54 @@
+<?php
+
+// Arquivo de Corpo
+
+include "../conexao.php";
+
+$sqlAparelho = "SELECT * FROM relatorios_telefones WHERE id=".$_GET['id'];
+$resAparelho = mysql_query($sqlAparelho, $con);
+$rowAparelho = mysql_fetch_array($resAparelho);
+
+?>
+
+<a href="./" id="botaoVoltar">Voltar</a>
+
+
+<section class="aparelho">
+	<h2>Editar Aparelho - <?=$rowAparelho['id']?></h2>
+
+	<form id="editarAparelho" action="./" method="post">
+	<input type="hidden" name="hiddenAparelho" value="<?=$rowAparelho['id']?>">
+
+	<input value="<?=$rowAparelho['marca']?>" placeholder="Marca" type="text" name="inputMarca" id="inputMarca" required><span>*</span>
+	<input value="<?=$rowAparelho['modelo']?>" placeholder="Modelo" type="text" name="inputModelo" id="inputModelo" required><span>*</span>
+	<input value="<?=$rowAparelho['imei']?>" placeholder="IMEI" type="text" name="inputImei" id="inputImei" required><span>*</span>
+	<input value="<?=$rowAparelho['pin']?>" placeholder="PIN" type="text" name="inputPin" id="inputPin">
+	<input value="<?=$rowAparelho['situacao']?>" placeholder="Situação" type="text" name="inputSituacao" id="inputSituacao" required><span>*</span>
+	<input value="<?=$rowAparelho['usuario']?>" placeholder="Usuário" type="text" name="inputUsuario" id="inputUsuario">
+	<input value="<?=$rowAparelho['matricula']?>" placeholder="Matrícula" type="text" name="inputMatriculaUsuario" id="inputMatriculaUsuario">
+	<input value="<?=$rowAparelho['setor']?>" placeholder="Setor" type="text" name="inputSetor" id="inputSetor">
+	<input value="<?=$rowAparelho['unidade']?>" placeholder="Unidade" type="text" name="inputUnidade" id="inputUnidade">
+
+	<select name="inputChip" id="inputChip">
+		<option value="0" selected>Sem Chip</option>
+		<?php
+		$sqlChip = "SELECT * FROM relatorios_chips ORDER BY id";
+		$resChip = mysql_query($sqlChip, $con);
+		$numChip = mysql_num_rows($resChip);
+
+		for($x = 0; $x < $numChip; $x++) {
+
+			$rowChip = mysql_fetch_array($resChip);
+		?>		
+		<option <?php if($rowAparelho['id_chip'] == $rowChip['id']) echo "selected"; ?> value="<?=$rowChip['id']?>"><?="Chip ".$rowChip['id']." - ".$rowChip['numero']?></option>
+		<?php } ?>
+	</select>
+
+	<textarea placeholder="Problema" type="text" name="inputProblema" id="inputProblema"><?=$rowAparelho['problema']?></textarea>
+
+	<input type="submit" name="enviar" value="Salvar">
+
+	</form>
+</section>
+
+

@@ -1,0 +1,9 @@
+# Turn mod_rewrite on
+RewriteEngine On
+
+RewriteBase /relatorios/telefones/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ /$1/ [L,R=301]
