@@ -176,7 +176,7 @@ h2 {
     padding: 16px 0;
 }
 
-#telefones, #chips, #linhas, #modens, #historico, #movimentos {
+#aprendizes, #agendas, #historico {
 	display: none;
 }
 
@@ -415,7 +415,7 @@ div#resultadoSql {
     left: 25%;
 }
 
-input#pesquisarAparelhos, input#pesquisarModens, input#pesquisarLinhas, input#pesquisarChips, input#pesquisarMovimentos {
+input#pesquisarAprendizes, input#pesquisarModens, input#pesquisarLinhas, input#pesquisarChips, input#pesquisarMovimentos {
     margin: 10px 0;
     width: 60%;
     padding: 16px;
@@ -430,13 +430,13 @@ input#pesquisarAparelhos, input#pesquisarModens, input#pesquisarLinhas, input#pe
     -webkit-transition: all 0.43s;
 }
 
-input#pesquisarAparelhos:focus, input#pesquisarModens:focus, input#pesquisarLinhas:focus, input#pesquisarMovimentos:focus, input#pesquisarChips:focus {
+input#pesquisarAprendizes:focus, input#pesquisarModens:focus, input#pesquisarLinhas:focus, input#pesquisarMovimentos:focus, input#pesquisarChips:focus {
     border: #222 1px solid;
     background: #525252;
     color: #DDD;
 }
 
-a#adicionarAparelho, a#adicionarModem, a#adicionarLinha, a#adicionarChip, a#adicionarMovimento {
+a#adicionarAprendiz, a#adicionarModem, a#adicionarLinha, a#adicionarChip, a#adicionarMovimento {
     width: 27%;
     padding: 18px 1%;
     background: #999;
@@ -454,7 +454,7 @@ a#adicionarAparelho, a#adicionarModem, a#adicionarLinha, a#adicionarChip, a#adic
     -webkit-transition: all 0.43s;
 }
 
-a#adicionarAparelho:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarLinha:hover, a#adicionarChip:hover, a#adicionarMovimento:hover {
+a#adicionarAprendiz:hover, a#botaoVoltar:hover, a#adicionarModem:hover, a#adicionarLinha:hover, a#adicionarChip:hover, a#adicionarMovimento:hover {
     background: #578fce;
 }
 
@@ -498,7 +498,7 @@ img#logoInterno {
     min-height: 14px;
 }
 
-.linhaResultado4 .colunaResultado, .linhaResultado5 .colunaResultado {
+.linhaResultado .colunaResultado, .linhaResultado5 .colunaResultado {
     width: 25%;
     min-height: 14px;
 }
@@ -507,7 +507,7 @@ a.linkTitulo3 {
     width: 16%;
 }
 
-a.linkTitulo4, a.linkTitulo5 {
+a.linkTitulo, a.linkTitulo5 {
     width: 25%;
 }
 
@@ -563,3 +563,80 @@ a.nmn.selecionado {
     font-weight: normal;
     font-style: normal;
 }
+
+.cabecalhoDia {
+    display: inline-block;
+    width: 18%;
+    padding: 16px 0;
+    text-align: center;
+    background: #497fbf;
+    color: #FFF;
+    box-shadow: 0px 0px 1px;
+}
+
+.cabecalhoDia:nth-child(2) {
+    margin-left: 5%;
+}
+
+
+div.expediente {
+    min-height: 106px;
+    display: inline-block;
+    background: #EEE;
+    width: 18%;
+    box-shadow: 0px 0px 1px #BBB;
+    margin-bottom: 70px;
+    margin-top: 7px;
+    vertical-align: top;
+}
+
+div.expediente:nth-child(7) {
+    margin-left: 5%;
+}
+
+
+h3 {
+    background: #999;
+    text-align: center;
+    font-weight: normal;
+    padding: 12px 0;
+    color: #EEE;
+}
+
+.turno {
+    border-bottom: 1px solid #CCC;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.turno.sim {
+    background: rgba(57,99,226,0.16);
+}
+
+.turno.nao:nth-child(odd) {
+    background: #E0E0E0;
+}
+
+.turno.sim:nth-child(odd) {
+    background: rgba(57,99,226,0.22);
+    cursor: pointer;
+}
+
+.turno.sim:nth-child(odd):hover {
+    background: rgba(97,160,124,0.22);
+}
+
+
+.cabecalhoDia.hoje:before {
+    content: "HOJE";
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.07;
+    margin-left: -3.1%;
+    margin-top: -8px;
+}
+
+.cabecalhoDia.hoje {
+    background: #649e8c;
+}
+
