@@ -615,6 +615,7 @@ h3 {
 
 .turno.nao:nth-child(odd) {
     background: #E0E0E0;
+    cursor: pointer;
 }
 
 .turno.sim:nth-child(odd) {
@@ -622,7 +623,7 @@ h3 {
     cursor: pointer;
 }
 
-.turno.sim:nth-child(odd):hover {
+.turno.sim:nth-child(odd):hover, .turno.nao:nth-child(odd):hover {
     background: rgba(97,160,124,0.22);
 }
 

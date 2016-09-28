@@ -159,7 +159,7 @@ else {
 <input id="detalhes<?=$data[1]['ano'].$data[1]['mes'].$data[1]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$detalhes;?>">
 <input id="presenca<?=$data[1]['ano'].$data[1]['mes'].$data[1]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$presenca;?>">
 <div class='turno <?=$expediente?>'><span>M</span></div>
-<div <?php if($expediente == "sim") { ?>onclick="alterarAgenda('<?=$data[1]['dia']."-".$mesNumerico."-".$anoNumerico."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')"<?php } ?> class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
+<div onclick="alterarAgenda('<?=$data[1]['dia']."-".$data[1]['mes']."-".$data[1]['ano']."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')" class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
 <div class='turno <?=$expediente?>'><span>N</span></div>
 
 <?php } ?>
@@ -193,7 +193,7 @@ else {
 <input id="detalhes<?=$data[2]['ano'].$data[2]['mes'].$data[2]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$detalhes;?>">
 <input id="presenca<?=$data[2]['ano'].$data[2]['mes'].$data[2]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$presenca;?>">
 <div class='turno <?=$expediente?>'><span>M</span></div>
-<div <?php if($expediente == "sim") { ?>onclick="alterarAgenda('<?=$dia[2]."-".$mesNumerico."-".$anoNumerico."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')"<?php } ?> class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
+<div onclick="alterarAgenda('<?=$data[2]['dia']."-".$data[2]['mes']."-".$data[2]['ano']."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')" class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
 <div class='turno <?=$expediente?>'><span>N</span></div>
 
 <?php } ?>
@@ -227,7 +227,7 @@ else {
 <input id="detalhes<?=$data[3]['ano'].$data[3]['mes'].$data[3]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$detalhes;?>">
 <input id="presenca<?=$data[3]['ano'].$data[3]['mes'].$data[3]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$presenca;?>">
 <div class='turno <?=$expediente?>'><span>M</span></div>
-<div <?php if($expediente == "sim") { ?>onclick="alterarAgenda('<?=$data[3]['dia']."-".$mesNumerico."-".$anoNumerico."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')"<?php } ?> class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
+<div onclick="alterarAgenda('<?=$data[3]['dia']."-".$data[3]['mes']."-".$data[3]['ano']."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')" class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
 <div class='turno <?=$expediente?>'><span>N</span></div>
 
 <?php } ?>
@@ -261,7 +261,7 @@ else {
 <input id="detalhes<?=$data[4]['ano'].$data[4]['mes'].$data[4]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$detalhes;?>">
 <input id="presenca<?=$data[4]['ano'].$data[4]['mes'].$data[4]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$presenca;?>">
 <div class='turno <?=$expediente?>'><span>M</span></div>
-<div <?php if($expediente == "sim") { ?>onclick="alterarAgenda('<?=$data[4]['dia']."-".$mesNumerico."-".$anoNumerico."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')"<?php } ?> class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
+<div onclick="alterarAgenda('<?=$data[4]['dia']."-".$data[4]['mes']."-".$data[4]['ano']."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')" class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
 <div class='turno <?=$expediente?>'><span>N</span></div>
 
 <?php } ?>
@@ -295,7 +295,7 @@ else {
 <input id="detalhes<?=$data[5]['ano'].$data[5]['mes'].$data[5]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$detalhes;?>">
 <input id="presenca<?=$data[5]['ano'].$data[5]['mes'].$data[5]['dia'].$aprendiz[$i]['id'];?>" type="hidden" value="<?=$presenca;?>">
 <div class='turno <?=$expediente?>'><span>M</span></div>
-<div <?php if($expediente == "sim") { ?>onclick="alterarAgenda('<?=$data[5]['dia']."-".$mesNumerico."-".$anoNumerico."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')"<?php } ?> class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
+<div onclick="alterarAgenda('<?=$data[5]['dia']."-".$data[5]['mes']."-".$data[5]['ano']."-".$aprendiz[$i]['nome']."-".$aprendiz[$i]['id']; ?>')" class='turno <?=$expediente?> presenca<?=$presenca?>'><span>T</span></div>
 <div class='turno <?=$expediente?>'><span>N</span></div>
 
 <?php } ?>
@@ -309,7 +309,7 @@ else {
 <h4 id="h4AlterarAgenda"></h4>
 <h5 id="h5AlterarAgenda"></h5>
 
-<form id="formAlterarAgenda" method="post" action="./">
+<form id="formAlterarAgenda" method="post" action="../..<?=$_SERVER['REQUEST_URI']?>">
 
 <input type="hidden" name="hiddenCreate" id="hiddenCreate" value="true">
 <input type="hidden" name="dataAlterarAgenda" id="dataAlterarAgenda">
@@ -386,13 +386,13 @@ echo "var diaHoje = ".$hoje.";";
 		if(presenca == 1) {
 			document.getElementById("ausente").className = "";
 			document.getElementById("presente").className = "selecionado";
-			$('#presencaAlterarAgenda').val("1");
+			$('#presencaAlterarAgenda').val("presente");
 		}
 
 		else if(presenca == 0) {
 			document.getElementById("ausente").className = "selecionado";
 			document.getElementById("presente").className = "";
-			$('#presencaAlterarAgenda').val("0");
+			$('#presencaAlterarAgenda').val("ausente");
 		}
 
 		else {
