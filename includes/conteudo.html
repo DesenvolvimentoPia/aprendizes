@@ -4,6 +4,8 @@
 
 include "../conexao.php";
 
+include "functions/create.tpl";
+
 ?>
 
 <body>
@@ -25,6 +27,17 @@ $(function(){
 
 <div id="resultadoSql"><?=$resultado;?></div>
 <?php } ?>
+
+<script> 
+
+$(function() {
+	$('#sombraBranca').click(function() {
+		$('#sombraBranca').fadeOut();
+		$('.alterarAgenda').fadeOut();
+	});	
+});
+
+</script>
 
 <div id="sombraBranca"></div>
 

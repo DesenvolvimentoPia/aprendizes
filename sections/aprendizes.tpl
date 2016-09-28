@@ -7,7 +7,7 @@
 	</div>
 
 	<a data-cod="{{x.id}}" class="linhaResultado" ng-repeat="x in recordsAprendizes | orderBy:myOrderBy | filter: filtro">
-		<div class="colunaResultado">{{x.id}}</div><div class="colunaResultado">{{x.nome}}</div><div class="colunaResultado">{{x.email}}</div><div class="colunaResultado">{{x.expediente}}</div>
+		<div class="colunaResultado">{{x.id}}</div><div class="colunaResultado">{{x.nome}}</div><div class="colunaResultado">{{x.email}}</div><div class="colunaResultado {{x.expediente}}"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span></div>
 	</a>
 
 	<script>
@@ -40,7 +40,16 @@
 	$row = mysql_fetch_array($res);
 		if($i == 0) echo "{";
 		else echo ", {";
-		echo "'id': ".$row['id'].", 'nome': '".$row['nome']."', 'email': '".$row['email']."', 'expediente': '".$row['expediente']."' }";
+
+		$expediente = "";
+
+		$explodir = explode(",", $row['expediente']);
+		for($j = 0; $j < count($explodir); $j++) {
+			$expediente .= " dia".$explodir[$j]; 
+		}
+
+
+		echo "'id': ".$row['id'].", 'nome': '".$row['nome']."', 'email': '".$row['email']."', 'expediente': '".$expediente."' }";
 	}
 	
 	?>

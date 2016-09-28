@@ -539,9 +539,9 @@ a.nmn.selecionado {
 }
 
 .colunaResultado span {
-    width: 33%;
+    width: 20%;
     display: inline-block;
-    background: rgba(38, 86, 125, 0.16);
+    background: rgba(52, 52, 52, 0.16);
     padding: 12px 0px;
     margin: -12px 0;
     box-shadow: 0px 0px 1px rgba(0,0,0,0.16);
@@ -590,7 +590,7 @@ div.expediente {
     vertical-align: top;
 }
 
-div.expediente:nth-child(7) {
+div.expediente:nth-child(9) {
     margin-left: 5%;
 }
 
@@ -640,3 +640,107 @@ h3 {
     background: #649e8c;
 }
 
+a#botaoVoltar1, a#botaoAvancar {
+    width: 5%;
+    display: inline-block;
+    padding: 3px 0 5px;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: top;
+    background: rgba(0,0,0,0.2);
+    color: #FFF;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+a#botaoVoltar1:hover, a#botaoAvancar:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+div#sombraBranca {
+    background: rgba(255,255,255,0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9998;
+    display: none;
+}
+
+div#divAlterarAgenda {
+    background: #FFF;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 70%;
+    overflow: auto;
+    margin-left: 35%;
+    margin-top: 4.3%;
+    border: 1px solid #BBB;
+    display: none;
+}
+
+h4#h4AlterarAgenda {
+    background: #999;
+    color: #FFF;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px 0;
+}
+
+
+.colunaResultado.dia2 span:nth-child(2), .colunaResultado.dia1 span:nth-child(1), .colunaResultado.dia3 span:nth-child(3), .colunaResultado.dia4 span:nth-child(4), .colunaResultado.dia5 span:nth-child(5) {
+    background: rgba(52,79,106,.52);
+}
+
+h5#h5AlterarAgenda {
+    text-align: center;
+    padding: 12px;
+    color: #777;
+    font-weight: normal;
+    font-size: 18px;
+    background: #EEE;
+}
+
+form#formAlterarAgenda {
+    width: 80%;
+}
+
+form#formAlterarAgenda textarea {
+    width: 100%;
+    height: 196px;
+}
+
+div#presente, div#ausente {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    padding: 16px 0;
+    background: #CCC;
+    box-shadow: 0px 0px 1px #FFF;
+    color: #777;
+    cursor: pointer;
+}
+
+div#presente.selecionado {
+    background: #3bab98;
+    color: #FFF;
+}
+
+div#ausente.selecionado {
+    color: #FFF;
+    background: #B76;
+}
+
+.turno.sim.presenca1, .turno.nao.presenca1 {
+    background: rgba(59, 171, 152, 0.43);
+}
+
+.turno.sim.presenca0, .turno.nao.presenca0 {
+    background: rgba(205, 77, 66, 0.43);
+}

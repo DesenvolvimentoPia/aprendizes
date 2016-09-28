@@ -4,7 +4,7 @@ Cooperativa Agropecuária PIÁ
 Data de Início: 23/09/2016  
 Autor: Thiago Santos
 
-Breve Descrição: aprendizes é um módulo dos Relatórios de Suporte - PIÁ. Visa possibilitar a consulta, listagem e edição das Agendas dos APrendizes do setor TI.
+Breve Descrição: aprendizes é um módulo dos Relatórios de Suporte - PIÁ. Visa possibilitar a consulta, listagem e edição das Agendas dos Aprendizes do setor TI.
 
 -----------------------------------------------------------------------------
 
