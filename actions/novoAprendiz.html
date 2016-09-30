@@ -12,12 +12,12 @@ include "../conexao.php";
 
 	<form id="editarAprendiz" action="./" method="post">
 	<input type="hidden" name="hiddenNovoAprendiz" value="true">
+	<input type="hidden" name="hiddenCreate" id="hiddenCreate" value="true">
 
 	<input placeholder="Nome" type="text" name="inputNome" id="inputNome" required><span>*</span>
 	<input placeholder="Matrícula" type="text" name="inputMatricula" id="inputMatricula" required><span>*</span>
 	<input placeholder="E-mail" type="email" name="inputEmail" id="inputEmail" required><span>*</span>
 	<input placeholder="Telefone" type="text" name="inputTelefone" id="inputTelefone" required><span>*</span>
-	<input placeholder="Situação" type="text" name="inputSituacao" id="inputSituacao" required><span>*</span>
 	<input placeholder="Data de Nascimento" type="text" name="inputNascimento" id="inputNascimento" required title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"><span>*</span>
 	<input placeholder="Endereço" type="text" name="inputEndereco" id="inputEndereco">
 	<input placeholder="Número" type="text" name="inputNumero" id="inputNumero">
@@ -26,10 +26,10 @@ include "../conexao.php";
 	<input placeholder="Instituição de Ensino" type="text" name="inputInstituicao" id="inputInstituicao" required><span>*</span>
 	<input placeholder="Série" type="text" name="inputSerie" id="inputSerie" required><span>*</span>
 
-	<a class="nmn" id="nmnSegunda">S</a><a class="nmn" id="nmnTerca">T</a><a class="nmn" id="nmnQuarta">Q</a><a class="nmn" id="nmnQuinto">Q</a><a class="nmn" id="nmnSexta">S</a>
+	<a class="nmn" id="nmn1" data-codigo="1">S</a><a class="nmn" id="nmn2" data-codigo="2">T</a><a class="nmn" id="nmn3" data-codigo="3">Q</a><a class="nmn" id="nmn4" data-codigo="4">Q</a><a class="nmn" id="nmn5" data-codigo="5">S</a>
 
 	<input type="hidden" name="inputExpediente" id="inputExpediente">
-	<select name="inputTurno" id="inputTurno">
+	<select name="inputTurno" id="inputTurno" value="">
 		<option value="0" selected>Turno</option>		
 		<option value="M">Manhã</option>
 		<option value="T">Tarde</option>
@@ -46,10 +46,16 @@ include "../conexao.php";
 		$('.nmn').click(function() {
 			if(this.className == "nmn") {
 				this.className = "nmn selecionado";
+				//alert("Att: "+this.getAttribute('data-codigo'));
+				document.getElementById('inputExpediente').value = document.getElementById('inputExpediente').value +","+this.getAttribute('data-codigo');
 			}
+
 			else {
 				this.className = "nmn";
+				var remover = document.getElementById('inputExpediente').value.replace(","+this.getAttribute('data-codigo'), "");
+				document.getElementById('inputExpediente').value = remover;
 			}
+
 		});
 	});
 

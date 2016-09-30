@@ -62,6 +62,7 @@
 
 });
 
+<?php if($_SESSION['acesso'] != 8) { ?>
 
 $(function () {
 	$( "section" ).delegate( ".linhaResultado", "click", function() {
@@ -89,5 +90,8 @@ $(function () {
 
 	});
 });
+
+
+<?php } ?>
 	
 </script>

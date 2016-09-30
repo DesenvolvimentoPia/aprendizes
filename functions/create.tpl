@@ -60,11 +60,33 @@ if(!empty($_POST['hiddenCreate'])) {
 		$cortar = explode("/", $_POST['inputNascimento']);
 		$nascimento = $cortar[2]."-".$cortar[1]."-".$cortar[0];
 
-		$sql = "INSERT INTO relatorios_aprendizes (nome, email, telefone) VALUES ('".$_POST['inputNome']."', '".$_POST['inputNome']."', '".$_POST['inputTelefone']."', '".$_POST['inputEmail']."')";
+		$expediente = substr($_POST['inputExpediente'], 1);
+
+		$sql = "INSERT INTO relatorios_aprendizes (nome, turno, expediente, telefone, email, matricula, logradouro, numero, bairro, cidade, nascimento, instituicao, serie, setor, unidade) VALUES ('".$_POST['inputNome']."', '".$_POST['inputTurno']."', '".$expediente."', '".$_POST['inputTelefone']."', '".$_POST['inputEmail']."', '".$_POST['inputMatricula']."', '".$_POST['inputEndereco']."', '".$_POST['inputNumero']."', '".$_POST['inputBairro']."', '".$_POST['inputCidade']."', '".$nascimento."', '".$_POST['inputInstituicao']."', '".$_POST['inputSerie']."', '".$_POST['inputSetor']."', '".$_POST['inputUnidade']."')";
+		$res= mysql_query($sql, $con);
+			
+		$resultado = "Aprendiz Inserido com Sucesso!";
 
 
 
 		$sql1 = "INSERT INTO relatorios_historico VALUES ('', 'Novo Aprendiz Inserido', '".date("Y-m-d H:i:s")."', 'Um Novo Aprendiz foi Inserido com Sucesso!', '".$_SESSION['userId']."', '3')";
 		$res1= mysql_query($sql1, $con);
+
+		?>
+
+		<style>
+
+#home {
+	display: none;
+}
+
+#aprendizes {
+	display: block;
+}
+
+
+</style>
+
+		<?php
 	} 
 }

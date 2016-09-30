@@ -4,9 +4,12 @@
 
 include "../conexao.php";
 
-$sqlAparelho = "SELECT * FROM relatorios_telefones WHERE id=".$_GET['id'];
+$sqlAparelho = "SELECT * FROM relatorios_aprendizes WHERE id=".$_GET['id'];
 $resAparelho = mysql_query($sqlAparelho, $con);
 $rowAparelho = mysql_fetch_array($resAparelho);
+
+$explodir = explode("-", $rowAparelho['nascimento']);
+$nascimento = $explodir[2]."/".$explodir[1]."/".$explodir[0];
 
 ?>
 
@@ -14,39 +17,57 @@ $rowAparelho = mysql_fetch_array($resAparelho);
 
 
 <section class="aparelho">
-	<h2>Editar Aparelho - <?=$rowAparelho['id']?></h2>
+	<h2>Editar Aprendiz - <?=$rowAparelho['nome']?></h2>
 
 	<form id="editarAparelho" action="./" method="post">
 	<input type="hidden" name="hiddenAparelho" value="<?=$rowAparelho['id']?>">
 
-	<input value="<?=$rowAparelho['marca']?>" placeholder="Marca" type="text" name="inputMarca" id="inputMarca" required><span>*</span>
-	<input value="<?=$rowAparelho['modelo']?>" placeholder="Modelo" type="text" name="inputModelo" id="inputModelo" required><span>*</span>
-	<input value="<?=$rowAparelho['imei']?>" placeholder="IMEI" type="text" name="inputImei" id="inputImei" required><span>*</span>
-	<input value="<?=$rowAparelho['pin']?>" placeholder="PIN" type="text" name="inputPin" id="inputPin">
-	<input value="<?=$rowAparelho['situacao']?>" placeholder="Situação" type="text" name="inputSituacao" id="inputSituacao" required><span>*</span>
-	<input value="<?=$rowAparelho['usuario']?>" placeholder="Usuário" type="text" name="inputUsuario" id="inputUsuario">
-	<input value="<?=$rowAparelho['matricula']?>" placeholder="Matrícula" type="text" name="inputMatriculaUsuario" id="inputMatriculaUsuario">
-	<input value="<?=$rowAparelho['setor']?>" placeholder="Setor" type="text" name="inputSetor" id="inputSetor">
-	<input value="<?=$rowAparelho['unidade']?>" placeholder="Unidade" type="text" name="inputUnidade" id="inputUnidade">
+	<input value="<?=$rowAparelho['nome']?>" placeholder="Nome" type="text" name="inputNome" id="inputNome" required><span>*</span>
+	<input value="<?=$rowAparelho['matricula']?>" placeholder="Matrícula" type="text" name="inputMatricula" id="inputMatricula" required><span>*</span>
+	<input value="<?=$rowAparelho['email']?>" placeholder="E-mail" type="email" name="inputEmail" id="inputEmail" required><span>*</span>
+	<input value="<?=$rowAparelho['telefone']?>" placeholder="Telefone" type="text" name="inputTelefone" id="inputTelefone" required><span>*</span>
+	<input value="<?=$nascimento?>" placeholder="Data de Nascimento" type="text" name="inputNascimento" id="inputNascimento" required title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"><span>*</span>
+	<input value="<?=$rowAparelho['logradouro']?>" placeholder="Endereço" type="text" name="inputEndereco" id="inputEndereco">
+	<input value="<?=$rowAparelho['numero']?>" placeholder="Número" type="text" name="inputNumero" id="inputNumero">
+	<input value="<?=$rowAparelho['bairro']?>" placeholder="Bairro" type="text" name="inputBairro" id="inputBairro">
+	<input value="<?=$rowAparelho['cidade']?>" placeholder="Cidade" type="text" name="inputCidade" id="inputCidade">
+	<input value="<?=$rowAparelho['instituicao']?>" placeholder="Instituição de Ensino" type="text" name="inputInstituicao" id="inputInstituicao" required><span>*</span>
+	<input value="<?=$rowAparelho['serie']?>" placeholder="Série" type="text" name="inputSerie" id="inputSerie" required><span>*</span>
 
-	<select name="inputChip" id="inputChip">
-		<option value="0" selected>Sem Chip</option>
-		<?php
-		$sqlChip = "SELECT * FROM relatorios_chips ORDER BY id";
-		$resChip = mysql_query($sqlChip, $con);
-		$numChip = mysql_num_rows($resChip);
+	<input id="inputExpediente">
+	<a class="nmn" id="nmn1" data-codigo="1">S</a><a class="nmn" id="nmn2" data-codigo="2">T</a><a class="nmn" id="nmn3" data-codigo="3">Q</a><a class="nmn" id="nmn4" data-codigo="4">Q</a><a class="nmn" id="nmn5" data-codigo="5">S</a>
 
-		for($x = 0; $x < $numChip; $x++) {
+	<input type="hidden" name="inputExpediente" id="inputExpediente">
+	<select name="inputTurno" id="inputTurno">
+		<option value="0" <?php if($rowAparelho['turno'] == "0") echo "selected";?>>Turno</option>		
+		<option <?php if($rowAparelho['turno'] == "M") echo "selected";?> value="M">Manhã</option>
+		<option <?php if($rowAparelho['turno'] == "T") echo "selected";?> value="T">Tarde</option>
+		<option <?php if($rowAparelho['turno'] == "N") echo "selected";?> value="N">Noite</option>
 
-			$rowChip = mysql_fetch_array($resChip);
-		?>		
-		<option <?php if($rowAparelho['id_chip'] == $rowChip['id']) echo "selected"; ?> value="<?=$rowChip['id']?>"><?="Chip ".$rowChip['id']." - ".$rowChip['numero']?></option>
-		<?php } ?>
 	</select>
 
-	<textarea placeholder="Problema" type="text" name="inputProblema" id="inputProblema"><?=$rowAparelho['problema']?></textarea>
+	<input value="<?=$rowAparelho['setor']?>" placeholder="Setor" type="text" name="inputSetor" id="inputSetor">
+	<input value="<?=$rowAparelho['unidade']?>" placeholder="Unidade" type="text" name="inputUnidade" id="inputUnidade">
+	
+	<script>
 
-	<input type="submit" name="enviar" value="Salvar">
+	$(function() {
+		$('.nmn').click(function() {
+			if(this.className == "nmn") {
+				this.className = "nmn selecionado";
+				document.getElementById('inputExpediente').value += ","+this.data('codigo');
+			}
+			else {
+				this.className = "nmn";
+				var remover = document.getElementById('inputExpediente').value..replace(","+this.data('codigo'), "");
+			}
+
+		});
+	});
+
+	</script>
+
+	<input type="submit" name="enviar">
 
 	</form>
 </section>
