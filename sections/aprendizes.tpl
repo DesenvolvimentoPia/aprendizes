@@ -3,11 +3,11 @@
 	<input placeholder="Pesquisa Rápida" name="pesquisarAprendizes" id="pesquisarAprendizes" type="text" ng-model="filtro"><a id="adicionarAprendiz">Adicionar</a>
 
 	<div class="tituloResultados">
-	<a  class="linkTitulo selecionado" ng-click="ordenar('id');">ID</a><a  class="linkTitulo" ng-click="ordenar('nome');">Nome</a><a  class="linkTitulo" ng-click="ordenar('email');">E-mail</a><a  class="linkTitulo" ng-click="ordenar('expediente');">Expediente</a>
+	<a  class="linkTitulo selecionado" id="colunaId" ng-click="ordenar('id');">ID</a><a  class="linkTitulo" ng-click="ordenar('nome');">Nome</a><a  class="linkTitulo" ng-click="ordenar('telefone');">Telefone</a><a  class="linkTitulo" ng-click="ordenar('email');">E-mail</a><a  class="linkTitulo" ng-click="ordenar('expediente');">Expediente</a>
 	</div>
 
 	<a data-cod="{{x.id}}" class="linhaResultado" ng-repeat="x in recordsAprendizes | orderBy:myOrderBy | filter: filtro">
-		<div class="colunaResultado">{{x.id}}</div><div class="colunaResultado">{{x.nome}}</div><div class="colunaResultado">{{x.email}}</div><div class="colunaResultado {{x.expediente}}"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span></div>
+		<div id="colunaIdLinha" class="colunaResultado">{{x.id}}</div><div class="colunaResultado">{{x.nome}}</div><div class="colunaResultado">{{x.telefone}}</div><div class="colunaResultado">{{x.email}}</div><div class="colunaResultado {{x.expediente}}"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span></div>
 	</a>
 
 	<script>
@@ -49,7 +49,7 @@
 		}
 
 
-		echo "'id': ".$row['id'].", 'nome': '".$row['nome']."', 'email': '".$row['email']."', 'expediente': '".$expediente."' }";
+		echo "'id': ".$row['id'].", 'nome': '".$row['nome']."', 'email': '".$row['email']."','telefone': '".$row['telefone']."', 'expediente': '".$expediente."' }";
 	}
 	
 	?>

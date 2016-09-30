@@ -1,0 +1,63 @@
+<?php
+// Arquivo de Corpo
+
+include "../conexao.php";
+
+?>
+
+<a href="./" id="botaoVoltar">Voltar</a>
+
+<section class="aparelho">
+	<h2>Adicionar Novo Aprendiz</h2>
+
+	<form id="editarAprendiz" action="./" method="post">
+	<input type="hidden" name="hiddenNovoAprendiz" value="true">
+
+	<input placeholder="Nome" type="text" name="inputNome" id="inputNome" required><span>*</span>
+	<input placeholder="Matrícula" type="text" name="inputMatricula" id="inputMatricula" required><span>*</span>
+	<input placeholder="E-mail" type="email" name="inputEmail" id="inputEmail" required><span>*</span>
+	<input placeholder="Telefone" type="text" name="inputTelefone" id="inputTelefone" required><span>*</span>
+	<input placeholder="Situação" type="text" name="inputSituacao" id="inputSituacao" required><span>*</span>
+	<input placeholder="Data de Nascimento" type="text" name="inputNascimento" id="inputNascimento" required title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$"><span>*</span>
+	<input placeholder="Endereço" type="text" name="inputEndereco" id="inputEndereco">
+	<input placeholder="Número" type="text" name="inputNumero" id="inputNumero">
+	<input placeholder="Bairro" type="text" name="inputBairro" id="inputBairro">
+	<input placeholder="Cidade" type="text" name="inputCidade" id="inputCidade">
+	<input placeholder="Instituição de Ensino" type="text" name="inputInstituicao" id="inputInstituicao" required><span>*</span>
+	<input placeholder="Série" type="text" name="inputSerie" id="inputSerie" required><span>*</span>
+
+	<a class="nmn" id="nmnSegunda">S</a><a class="nmn" id="nmnTerca">T</a><a class="nmn" id="nmnQuarta">Q</a><a class="nmn" id="nmnQuinto">Q</a><a class="nmn" id="nmnSexta">S</a>
+
+	<input type="hidden" name="inputExpediente" id="inputExpediente">
+	<select name="inputTurno" id="inputTurno">
+		<option value="0" selected>Turno</option>		
+		<option value="M">Manhã</option>
+		<option value="T">Tarde</option>
+		<option value="N">Noite</option>
+
+	</select>
+
+	<input placeholder="Setor" type="text" name="inputSetor" id="inputSetor">
+	<input placeholder="Unidade" type="text" name="inputUnidade" id="inputUnidade">
+	
+	<script>
+
+	$(function() {
+		$('.nmn').click(function() {
+			if(this.className == "nmn") {
+				this.className = "nmn selecionado";
+			}
+			else {
+				this.className = "nmn";
+			}
+		});
+	});
+
+	</script>
+
+	<input type="submit" name="enviar" >
+
+	</form>
+</section>
+
+

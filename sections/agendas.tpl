@@ -1,3 +1,9 @@
+
+<form action="./" id="formData">
+<input name="data" id="inputData" placeholder="dd/mm/aaaa" title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$">
+<input type="submit" id="pesquisarData">
+</form>
+
 <h2>Agenda Aprendizes</h2>
 
 <?php
@@ -15,6 +21,7 @@ if(!empty($_GET['data'])) {
 	$mesNumerico = $explodir[1];
 	$anoNumerico = $explodir[2];
 	$diaSemana = date("N", mktime(0, 0, 0, $mesNumerico, $diaNumerico, $anoNumerico));
+	if($diaSemana == 7) $diaSemana--;
 }
 
 $y = 0;
@@ -36,7 +43,7 @@ for($x = $diaSemana; $x > 0; $x--) {
 
 		while(!checkdate($mesNumerico, $diaNumerico, $anoNumerico) && $diaNumerico > 0) {
 			$diaNumerico--;
-			echo "<p>".$diaNumerico."</p>";
+			//echo "<p>".$diaNumerico."</p>";
 		}
 		
 		$diaNumerico++;
@@ -56,6 +63,7 @@ if(!empty($_GET['data'])) {
 	$mesNumericoFuturo = $explodir[1];
 	$anoNumericoFuturo = $explodir[2];
 	$diaSemana = date("N", mktime(0, 0, 0, $mesNumericoFuturo, $diaNumericoFuturo, $anoNumericoFuturo));
+	if($diaSemana == 7) $diaSemana--;
 }
 
 $y = 1;
@@ -101,11 +109,23 @@ else {
 	display: block;
 }
 
-div.expediente:nth-child(10) {
+div.expediente:nth-child(12) {
     margin-left: 5%;
 }
 
 </style>
+
+<script type="text/javascript">
+	
+var x = document.getElementsByClassName('acao');
+for(var z = 0; z < x.length; z++) {
+	var corte = x[z].href.split("#");
+	var href = corte[1];
+	if(href != "agendas") x[z].className = "acao";
+	else x[z].className = "acao selecionado";
+}
+
+</script>
 
 <?php
 

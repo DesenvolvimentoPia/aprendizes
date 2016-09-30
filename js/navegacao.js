@@ -16,4 +16,14 @@ $(document).ready(function() {
 		$('.aparelho').fadeIn(700); // Exibe Página Selecionada
 		$('#'+exibir[1]).fadeIn(700); // Exibe Página Selecionada
 	});
+
+
+	$('#backToTop').click(function() {
+		$('html, body').animate({ scrollTop: 0 }, 800);
+	});
+
+	$( window ).scroll(function() {
+		if($( window ).scrollTop() > 1240) 	$('#backToTop').fadeIn();
+		else $('#backToTop').fadeOut();
+	});
 });

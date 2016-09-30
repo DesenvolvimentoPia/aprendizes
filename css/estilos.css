@@ -499,8 +499,12 @@ img#logoInterno {
 }
 
 .linhaResultado .colunaResultado, .linhaResultado5 .colunaResultado {
-    width: 25%;
+    width: 22.5%;
     min-height: 14px;
+}
+
+#colunaIdLinha {
+    width: 10%;
 }
 
 a.linkTitulo3 {
@@ -508,12 +512,15 @@ a.linkTitulo3 {
 }
 
 a.linkTitulo, a.linkTitulo5 {
-    width: 25%;
+    width: 22.5%;
 }
 
+a#colunaId {
+    width: 10%;
+}
 
 a.nmn {
-    width: 23.333333%;
+    width: 14%;
     display: inline-block;
     text-align: center;
     padding: 16px 0;
@@ -590,7 +597,7 @@ div.expediente {
     vertical-align: top;
 }
 
-div.expediente:nth-child(9) {
+div.expediente:nth-child(10) {
     margin-left: 5%;
 }
 
@@ -744,4 +751,49 @@ div#ausente.selecionado {
 
 .turno.sim.presenca0, .turno.nao.presenca0 {
     background: rgba(205, 77, 66, 0.43);
+}
+
+
+
+input#pesquisarData {
+    display: inline-block;
+    width: 70px;
+    padding: 12px 0;
+}
+
+input#inputData {
+    display: inline-block;
+}
+
+form#formData {
+    margin-top: -7px;
+}
+
+
+
+
+
+a#backToTop {
+    width: 52px;
+    padding: 34px 0 6px;
+    position: fixed;
+    bottom: 34px;
+    right: 25px;
+    text-align: center;
+    background: #CCC;
+    color: #FFF;
+    font-size: 61px;
+    font-family: "Champagne & Limousines", 'Champagne';
+    cursor: pointer;
+    line-height: 10px;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+    display: none;
+}
+
+
+a#backToTop:hover {
+    background: #5da2F6;
 }

@@ -54,4 +54,17 @@ if(!empty($_POST['hiddenCreate'])) {
 
 
 	}
+
+	else if(!empty($_POST['hiddenNovoAprendiz'])) {
+
+		$cortar = explode("/", $_POST['inputNascimento']);
+		$nascimento = $cortar[2]."-".$cortar[1]."-".$cortar[0];
+
+		$sql = "INSERT INTO relatorios_aprendizes (nome, email, telefone) VALUES ('".$_POST['inputNome']."', '".$_POST['inputNome']."', '".$_POST['inputTelefone']."', '".$_POST['inputEmail']."')";
+
+
+
+		$sql1 = "INSERT INTO relatorios_historico VALUES ('', 'Novo Aprendiz Inserido', '".date("Y-m-d H:i:s")."', 'Um Novo Aprendiz foi Inserido com Sucesso!', '".$_SESSION['userId']."', '3')";
+		$res1= mysql_query($sql1, $con);
+	} 
 }
