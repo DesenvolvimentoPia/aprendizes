@@ -5,6 +5,7 @@
 include "../conexao.php";
 
 include "functions/create.tpl";
+include "functions/update.tpl";
 
 ?>
 
@@ -50,6 +51,7 @@ $(function() {
 		<a href="#home" class="acao selecionado">Home</a>
 		<a href="#aprendizes" class="acao">Aprendizes</a>
 		<a href="#agendas" class="acao">Agenda</a>
+		<a href="#relatorios" class="acao">Relatório</a>
 		<a href="#historico" class="acao">Histórico</a>
 		<a href="../">Voltar</a>
 	</nav>
@@ -81,6 +83,22 @@ $(function() {
 <section id="aprendizes" ng-app="appAprendizes" ng-controller="myCtrlAprendizes">
 	<?php include "sections/aprendizes.tpl"; ?>
 </section>
+
+
+
+
+
+
+
+
+
+
+<section id="relatorios" ng-app="appRelatorios" ng-controller="myCtrlRelatorios">
+	<?php include "sections/relatorios.tpl"; ?>
+</section>
+
+
+
 
 
 

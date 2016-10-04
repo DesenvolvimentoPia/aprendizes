@@ -20,7 +20,8 @@ $nascimento = $explodir[2]."/".$explodir[1]."/".$explodir[0];
 	<h2>Editar Aprendiz - <?=$rowAparelho['nome']?></h2>
 
 	<form id="editarAparelho" action="./" method="post">
-	<input type="hidden" name="hiddenAparelho" value="<?=$rowAparelho['id']?>">
+	<input type="hidden" name="hiddenAprendiz" value="<?=$rowAparelho['id']?>">
+	<input type="hidden" name="hiddenUpdate" id="hiddenUpdate" value="true">
 
 	<input value="<?=$rowAparelho['nome']?>" placeholder="Nome" type="text" name="inputNome" id="inputNome" required><span>*</span>
 	<input value="<?=$rowAparelho['matricula']?>" placeholder="Matrícula" type="text" name="inputMatricula" id="inputMatricula" required><span>*</span>
@@ -34,10 +35,10 @@ $nascimento = $explodir[2]."/".$explodir[1]."/".$explodir[0];
 	<input value="<?=$rowAparelho['instituicao']?>" placeholder="Instituição de Ensino" type="text" name="inputInstituicao" id="inputInstituicao" required><span>*</span>
 	<input value="<?=$rowAparelho['serie']?>" placeholder="Série" type="text" name="inputSerie" id="inputSerie" required><span>*</span>
 
-	<input id="inputExpediente">
-	<a class="nmn" id="nmn1" data-codigo="1">S</a><a class="nmn" id="nmn2" data-codigo="2">T</a><a class="nmn" id="nmn3" data-codigo="3">Q</a><a class="nmn" id="nmn4" data-codigo="4">Q</a><a class="nmn" id="nmn5" data-codigo="5">S</a>
 
-	<input type="hidden" name="inputExpediente" id="inputExpediente">
+	<a class="nmn <?php if(strstr($rowAparelho['expediente'], "1")) echo "selecionado";?>" id="nmn1" data-codigo="1">S</a><a class="nmn <?php if(strstr($rowAparelho['expediente'], "2")) echo "selecionado";?>" id="nmn2" data-codigo="2">T</a><a class="nmn <?php if(strstr($rowAparelho['expediente'], "3")) echo "selecionado";?>" id="nmn3" data-codigo="3">Q</a><a class="nmn <?php if(strstr($rowAparelho['expediente'], "4")) echo "selecionado";?>" id="nmn4" data-codigo="4">Q</a><a class="nmn <?php if(strstr($rowAparelho['expediente'], "5")) echo "selecionado";?>" id="nmn5" data-codigo="5">S</a>
+
+	<input type="hidden" name="inputExpediente" id="inputExpediente" value=",<?=$rowAparelho['expediente']?>">
 	<select name="inputTurno" id="inputTurno">
 		<option value="0" <?php if($rowAparelho['turno'] == "0") echo "selected";?>>Turno</option>		
 		<option <?php if($rowAparelho['turno'] == "M") echo "selected";?> value="M">Manhã</option>
@@ -53,13 +54,16 @@ $nascimento = $explodir[2]."/".$explodir[1]."/".$explodir[0];
 
 	$(function() {
 		$('.nmn').click(function() {
-			if(this.className == "nmn") {
+			if(this.className != "nmn selecionado") {
 				this.className = "nmn selecionado";
-				document.getElementById('inputExpediente').value += ","+this.data('codigo');
+				//alert("Att: "+this.getAttribute('data-codigo'));
+				document.getElementById('inputExpediente').value = document.getElementById('inputExpediente').value +","+this.getAttribute('data-codigo');
 			}
+
 			else {
 				this.className = "nmn";
-				var remover = document.getElementById('inputExpediente').value..replace(","+this.data('codigo'), "");
+				var remover = document.getElementById('inputExpediente').value.replace(","+this.getAttribute('data-codigo'), "");
+				document.getElementById('inputExpediente').value = remover;
 			}
 
 		});
