@@ -797,3 +797,37 @@ a#backToTop {
 a#backToTop:hover {
     background: #5da2F6;
 }
+
+#editarAparelho label {
+    background: transparent;
+    padding: 0;
+    color: #666;
+    padding-top: 7px;
+}
+
+#editarAparelho label span {
+    margin-left: 73%;
+}
+
+span.fecharModal {
+    float: right;
+    background: #777;
+    padding: 7px 12px;
+    margin-top: -7px;
+    margin-right: 7px;
+    margin-left: -41px;
+    cursor: pointer;
+    transition: all 0.43s;
+    -o-transition: all 0.43s;
+    -moz-transition: all 0.43s;
+    -webkit-transition: all 0.43s;
+}
+
+
+span.fecharModal:hover {
+    background: #B32;
+}
+
+#formRelatorio input[type="date"] {
+    width: 70%;
+}

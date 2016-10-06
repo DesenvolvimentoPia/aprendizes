@@ -2,6 +2,12 @@
 
 include "../conexao.php";
 
+$alterar = explode("-", $_POST['dataInicial']);
+$_POST['dataInicial'] = $alterar[2]."/".$alterar[1]."/".$alterar[0];
+
+$alterar = explode("-", $_POST['dataFinal']);
+$_POST['dataFinal'] = $alterar[2]."/".$alterar[1]."/".$alterar[0];
+
 $sql = "SELECT * FROM relatorios_aprendizes WHERE id=".$_POST['selectAprendiz'];
 $res = mysql_query($sql, $con);
 $row = mysql_fetch_array($res);

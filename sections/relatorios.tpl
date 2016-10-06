@@ -2,8 +2,8 @@
 
 
 <form action="./exportarPDF.php" id="formRelatorio" method="post">
-<input name="dataInicial" id="inputDataInicial" placeholder="Data Inicial" title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$">
-<input name="dataFinal" id="inputDataFinal" placeholder="Data Final" title="dd/mm/aaaa" pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$">
+<input name="dataInicial" id="inputDataInicial" title="Data Inicial" required type="date">
+<input name="dataFinal" id="inputDataFinal" title="Data Final" required type="date">
 <select name="selectAprendiz" id="selectAprendiz">
 
 <?php

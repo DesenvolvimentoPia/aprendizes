@@ -397,7 +397,7 @@ echo "var diaHoje = ".$hoje.";";
 
 		$('#sombraBranca').fadeIn();
 		$('#divAlterarAgenda').fadeIn();
-		$('#h4AlterarAgenda').html(user);
+		$('#h4AlterarAgenda').html(user+"<span class='fecharModal'>X</span>");
 		$('#usuarioAlterarAgenda').val(idUser);
 		$('#dataAlterarAgenda').val(dia+"-"+mes+"-"+ano);
 		$('#h5AlterarAgenda').html("Agenda do dia "+dia+"/"+mes+"/"+ano);
@@ -420,4 +420,11 @@ echo "var diaHoje = ".$hoje.";";
 			document.getElementById("presente").className = "";
 		}
 	}
+
+$(function () {
+	$( "h4" ).delegate( ".fecharModal", "click", function() {
+		$('#sombraBranca').fadeOut();
+		$('.alterarAgenda').fadeOut();
+	});
+});
 </script>
