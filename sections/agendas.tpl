@@ -29,8 +29,10 @@ $y = 0;
 for($x = $diaSemana; $x > 0; $x--) {
 	$dia[$x] = $diaNumerico - $y;
 	$y++;
+	$mudaMes = 0;
 
 	if($diaNumerico - $y == 0) {
+		$mudaMes = 1;
 
 		$mesNumerico--;
 		
@@ -41,16 +43,20 @@ for($x = $diaSemana; $x > 0; $x--) {
 
 		$diaNumerico = 31;
 
-		while(!checkdate($mesNumerico, $diaNumerico, $anoNumerico) && $diaNumerico > 0) {
+		while(!checkdate($mesNumerico, $diaNumerico, $anoNumerico)) {
 			$diaNumerico--;
 			//echo "<p>".$diaNumerico."</p>";
 		}
 		
-		$diaNumerico++;
+		$diaNumerico += $y;
 	}
 
 	$data[$x]['dia'] = str_pad($dia[$x], 2, "0", STR_PAD_LEFT);
-	$data[$x]['mes'] = str_pad($mesNumerico, 2, "0", STR_PAD_LEFT);
+	if($mudaMes == 0) $data[$x]['mes'] = str_pad($mesNumerico, 2, "0", STR_PAD_LEFT);
+	else {
+		$diaUm = $mesNumerico+1;
+		$data[$x]['mes'] = str_pad($diaUm, 2, "0", STR_PAD_LEFT);
+	}
 	$data[$x]['ano'] = str_pad($anoNumerico, 2, "0", STR_PAD_LEFT);
 }
 
@@ -137,17 +143,19 @@ for(var z = 0; z < x.length; z++) {
 
 <?php 
 
-$sql = "SELECT * FROM relatorios_aprendizes ORDER BY nome";
-$res = mysql_query($sql, $con);
-$num = mysql_num_rows($res);
+$sql = "SELECT * FROM relatorios_aprendizes ORDER BY id";
+$res = sqlsrv_query($con, $sql);
 
-for($i = 0; $i < $num; $i++) {
-	$row = mysql_fetch_array($res);
+$i = -1;
+while($row = sqlsrv_fetch_array($res)) {
+	$i++;
 	$aprendiz[$i]["id"] = $row['id'];
 	$aprendiz[$i]["nome"] = $row['nome'];
 	$aprendiz[$i]["email"] = $row['email'];
 	$aprendiz[$i]["expediente"] = $row['expediente'];
 }
+
+$num = $i + 1;
 
 ?>
 
@@ -161,12 +169,13 @@ if(strstr($aprendiz[$i]['expediente'], '1')) $expediente = "sim";
 else $expediente = "nao";
 
 $sqlAgenda = "SELECT * FROM relatorios_agendas WHERE data = '".$data[1]['ano'].'-'.$data[1]['mes'].'-'.$data[1]['dia']."' AND id_aprendiz = '".$aprendiz[$i]['id']."'";
-$resAgenda = mysql_query($sqlAgenda, $con);
-$numAgenda = mysql_num_rows($resAgenda);
+$resAgenda = sqlsrv_query($con, $sqlAgenda);
+$numAgenda = sqlsrv_has_rows($resAgenda);
 
 if($numAgenda > 0) {
-	$rowAgenda = mysql_fetch_array($resAgenda);
-	$detalhes = $rowAgenda['descricao'];
+	$rowAgenda = sqlsrv_fetch_array($resAgenda);
+$detalhes = str_replace("\\r\\n", "
+",$rowAgenda['descricao']);
 	$presenca = $rowAgenda['presenca'];
 }
 
@@ -195,12 +204,13 @@ if(strstr($aprendiz[$i]['expediente'], '2')) $expediente = "sim";
 else $expediente = "nao";
 
 $sqlAgenda = "SELECT * FROM relatorios_agendas WHERE data = '".$data[2]['ano'].'-'.$data[2]['mes'].'-'.$data[2]['dia']."' AND id_aprendiz = '".$aprendiz[$i]['id']."'";
-$resAgenda = mysql_query($sqlAgenda, $con);
-$numAgenda = mysql_num_rows($resAgenda);
+$resAgenda = sqlsrv_query($con, $sqlAgenda);
+$numAgenda = sqlsrv_has_rows($resAgenda);
 
 if($numAgenda > 0) {
-	$rowAgenda = mysql_fetch_array($resAgenda);
-	$detalhes = $rowAgenda['descricao'];
+	$rowAgenda = sqlsrv_fetch_array($resAgenda);
+$detalhes = str_replace("\\r\\n", "
+",$rowAgenda['descricao']);
 	$presenca = $rowAgenda['presenca'];
 }
 
@@ -229,12 +239,13 @@ if(strstr($aprendiz[$i]['expediente'], '3')) $expediente = "sim";
 else $expediente = "nao";
 
 $sqlAgenda = "SELECT * FROM relatorios_agendas WHERE data = '".$data[3]['ano'].'-'.$data[3]['mes'].'-'.$data[3]['dia']."' AND id_aprendiz = '".$aprendiz[$i]['id']."'";
-$resAgenda = mysql_query($sqlAgenda, $con);
-$numAgenda = mysql_num_rows($resAgenda);
+$resAgenda = sqlsrv_query($con, $sqlAgenda);
+$numAgenda = sqlsrv_has_rows($resAgenda);
 
 if($numAgenda > 0) {
-	$rowAgenda = mysql_fetch_array($resAgenda);
-	$detalhes = $rowAgenda['descricao'];
+	$rowAgenda = sqlsrv_fetch_array($resAgenda);
+$detalhes = str_replace("\\r\\n", "
+",$rowAgenda['descricao']);
 	$presenca = $rowAgenda['presenca'];
 }
 
@@ -263,12 +274,13 @@ if(strstr($aprendiz[$i]['expediente'], '4')) $expediente = "sim";
 else $expediente = "nao";
 
 $sqlAgenda = "SELECT * FROM relatorios_agendas WHERE data = '".$data[4]['ano'].'-'.$data[4]['mes'].'-'.$data[4]['dia']."' AND id_aprendiz = '".$aprendiz[$i]['id']."'";
-$resAgenda = mysql_query($sqlAgenda, $con);
-$numAgenda = mysql_num_rows($resAgenda);
+$resAgenda = sqlsrv_query($con, $sqlAgenda);
+$numAgenda = sqlsrv_has_rows($resAgenda);
 
 if($numAgenda > 0) {
-	$rowAgenda = mysql_fetch_array($resAgenda);
-	$detalhes = $rowAgenda['descricao'];
+	$rowAgenda = sqlsrv_fetch_array($resAgenda);
+$detalhes = str_replace("\\r\\n", "
+",$rowAgenda['descricao']);
 	$presenca = $rowAgenda['presenca'];
 }
 
@@ -297,12 +309,13 @@ if(strstr($aprendiz[$i]['expediente'], '5')) $expediente = "sim";
 else $expediente = "nao";
 
 $sqlAgenda = "SELECT * FROM relatorios_agendas WHERE data = '".$data[5]['ano'].'-'.$data[5]['mes'].'-'.$data[5]['dia']."' AND id_aprendiz = '".$aprendiz[$i]['id']."'";
-$resAgenda = mysql_query($sqlAgenda, $con);
-$numAgenda = mysql_num_rows($resAgenda);
+$resAgenda = sqlsrv_query($con, $sqlAgenda);
+$numAgenda = sqlsrv_has_rows($resAgenda);
 
 if($numAgenda > 0) {
-	$rowAgenda = mysql_fetch_array($resAgenda);
-	$detalhes = $rowAgenda['descricao'];
+	$rowAgenda = sqlsrv_fetch_array($resAgenda);
+$detalhes = str_replace("\\r\\n", "
+",$rowAgenda['descricao']);
 	$presenca = $rowAgenda['presenca'];
 }
 

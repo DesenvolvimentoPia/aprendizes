@@ -32,12 +32,12 @@
 
 	<?php
 
-	$sql = "SELECT * FROM relatorios_aprendizes ORDER BY nome";
-	$res = mysql_query($sql, $con);
-	$num = mysql_num_rows($res);
+	$sql = "SELECT * FROM relatorios_aprendizes ORDER BY id";
+	$res = sqlsrv_query($con, $sql);
+	$i = -1;
+while($row = sqlsrv_fetch_array($res)) {
+$i++;
 
-	for($i = 0; $i < $num; $i++) {
-	$row = mysql_fetch_array($res);
 		if($i == 0) echo "{";
 		else echo ", {";
 

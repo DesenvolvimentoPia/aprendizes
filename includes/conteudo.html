@@ -2,7 +2,7 @@
 
 // Arquivo de Corpo
 
-include "../conexao.php";
+include "../sisti/conexao.php";
 
 include "functions/create.tpl";
 include "functions/update.tpl";
@@ -45,7 +45,7 @@ $(function() {
 <main>
 	
 <header>
-	<h1><img src="../img/logo2.png" id="logoInterno"> Atividades Aprendizes - PIÁ</h1>
+	<h1><img src="../equipamentos/img/logo2.png" id="logoInterno"> Atividades Aprendizes - PIÁ</h1>
 
 	<nav>
 		<a href="#home" class="acao selecionado">Home</a>
@@ -140,11 +140,11 @@ $(function() {
 	<?php
 
 	$sql = "SELECT relatorios_historico.id, relatorios_historico.nome, hora, descricao, relatorios_usuarios.nome AS usuario FROM relatorios_historico LEFT JOIN relatorios_usuarios ON relatorios_historico.id_usuario = relatorios_usuarios.id  WHERE sistema = 3 OR sistema = 0 ORDER BY relatorios_historico.id DESC";
-	$res = mysql_query($sql, $con);
-	$num = mysql_num_rows($res);
+	$res = sqlsrv_query($con, $sql);
+	$i = -1;
+while($row = sqlsrv_fetch_array($res)) {
+$i++;
 
-	for($i = 0; $i < $num; $i++) {
-	$row = mysql_fetch_array($res);
 		if($i == 0) echo "{";
 		else echo ", {";
 		echo "'diaHora': '".$row['hora']."', 'evento': '".$row['nome']."', 'descricao': '".$row['descricao']."', 'usuario': '".$row['usuario']."' }";

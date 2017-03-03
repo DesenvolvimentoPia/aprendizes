@@ -2,11 +2,11 @@
 
 // Arquivo de Corpo
 
-include "../conexao.php";
+include "../sisti/conexao.php";
 
 $sqlAparelho = "SELECT * FROM relatorios_aprendizes WHERE id=".$_GET['id'];
-$resAparelho = mysql_query($sqlAparelho, $con);
-$rowAparelho = mysql_fetch_array($resAparelho);
+$resAparelho = sqlsrv_query($sqlAparelho, $con);
+$rowAparelho = sqlsrv_fetch_array($resAparelho);
 
 $explodir = explode("-", $rowAparelho['nascimento']);
 $nascimento = $explodir[2]."/".$explodir[1]."/".$explodir[0];

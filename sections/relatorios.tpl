@@ -8,12 +8,11 @@
 
 <?php
 
-$sql = "SELECT * FROM relatorios_aprendizes ORDER BY nome";
-$res = mysql_query($sql, $con);
-$num = mysql_num_rows($res);
-
-for($i = 0; $i < $num; $i++) {
-$row = mysql_fetch_array($res);
+$sql = "SELECT * FROM relatorios_aprendizes ORDER BY id";
+$res = sqlsrv_query($con, $sql);
+$i = -1;
+while($row = sqlsrv_fetch_array($res)) {
+	$i++;
 
 ?><option value="<?=$row['id']?>"><?=$row['nome']?></option><?php } ?>
 
